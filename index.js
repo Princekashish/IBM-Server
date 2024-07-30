@@ -21,8 +21,12 @@ connectDB()
   });
 
 // Middleware
-app.use(express.json()); // Using express.json() instead of bodyParser.json()
-app.use(cors());
+app.use(express.json());
+app.use(cors({
+  origin: "https://ibm-zerohunger-project.vercel.app/",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
 
 // Routes
 app.use("/auth/v1/user", userRouter);
