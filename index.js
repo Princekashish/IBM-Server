@@ -4,12 +4,13 @@ import connectDB from "./db/index.js";
 import cors from "cors";
 import userRouter from "./Routers/user.routers.js";  
 import funding from "./Routers/funding.routers.js";  
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// database Connection
+// Database Connection
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
@@ -23,11 +24,10 @@ connectDB()
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://ibm-zerohunger-project.vercel.app/",
+  origin: "https://ibm-zerohunger-project.vercel.app", 
   methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// Routes
 app.use("/auth/v1/user", userRouter);
-app.use("/api/fundraisers",funding)
+app.use("/api/fundraisers", funding);
