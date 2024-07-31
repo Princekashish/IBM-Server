@@ -20,7 +20,7 @@ export const createFundraiser = async (req, res) => {
 
 export const getFundraisers = async (req, res) => {
   try {
-    const fundraisers = await Fundrise.find(); // Using the correct model name
+    const fundraisers = await CreateFundrise.find(); // Using the correct model name
     res.status(200).json(fundraisers);
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
