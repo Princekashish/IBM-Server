@@ -20,4 +20,4 @@ const FindreseSchems = new Schema(
   },
   { timestamps: true }
 );
-export const Fundrise = mongoose.model("fundrise", FindreseSchems);
+export const CreateFundrise = mongoose.model("createfundrise", FindreseSchems);

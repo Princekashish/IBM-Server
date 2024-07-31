@@ -1,9 +1,10 @@
-import { Fundrise } from "../Models/Fundraiser.model.js";
+import { CreateFundrise } from "../Models/Fundraiser.model.js";
+
 
 export const createFundraiser = async (req, res) => {
   const { name, category, details, location } = req.body;
   try {
-    const fundraiser = new Fundrise({
+    const fundraiser = new CreateFundrise({
       name,
       category,
       details,
