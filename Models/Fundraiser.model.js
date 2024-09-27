@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-
 const FindreseSchems = new Schema(
   {
     name: {
@@ -18,10 +17,10 @@ const FindreseSchems = new Schema(
       type: String,
       required: true,
     },
-    createdBy: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true, // Ensure every document has an associated user
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", 
+      required: true, 
     },
   },
   { timestamps: true }
