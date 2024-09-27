@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import cors from "cors";
-import userRouter from "./Routers/user.routers.js";  
-import funding from "./Routers/funding.routers.js";  
+import userRouter from "./Routers/user.routers.js";
+import funding from "./Routers/funding.routers.js";
 
 dotenv.config();
 
@@ -23,11 +23,13 @@ connectDB()
 
 // Middleware
 app.use(express.json());
-app.use(cors({
-  origin: "*", 
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use("/auth/v1/user", userRouter);
 app.use("/api/fundraisers", funding);
