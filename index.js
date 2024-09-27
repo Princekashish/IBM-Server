@@ -24,7 +24,7 @@ connectDB()
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://ibm-zerohunger-project.vercel.app", 
+  origin: "*", 
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
